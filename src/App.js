@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Menu from './components/MenuComponent';
 import { DISHES } from './shared/Dishes';
+import { Navbar1 } from './shared/Navbar';
 
 class App extends Component{
   constructor(props){
@@ -11,8 +12,9 @@ class App extends Component{
     };
   }
 render(){
-    return (
+    return ( 
       <div>
+        <Navbar1 />
         <Menu dishes = {this.state.dishes}/>
       </div>
     );
