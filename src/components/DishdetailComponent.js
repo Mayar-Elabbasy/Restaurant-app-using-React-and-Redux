@@ -24,12 +24,12 @@ renderComments(comments){
     {
         const comments1 = comments.map(comment=>{
             return(
-                <div key={comment.id}>
+                <React.Fragment key={comment.id}>
                     <li>{ comment.comment }</li><br />
                     <li>-- { comment.author }, 
                     {new Intl.DateTimeFormat("en-GB", {
                         month: "long", day:"2-digit", year: "numeric"}).format(comment.date.firstSale)}</li><br />
-                </div>
+                </React.Fragment>
             );}
         );
         return(
