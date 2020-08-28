@@ -7,19 +7,11 @@ import { Card,
          Button,
          CardImgOverlay
         } from 'reactstrap';
-import DishDetail from './DishdetailComponent';
 
 class Menu extends Component {
     constructor(props){
         super(props);
-    
-    this.state = {  
-        selectedDish: null
-    };
 }
-    onDishSelect(dish){
-        this.setState({ selectedDish: dish });
-    };
 
     renderSelectedDish(dish){
         if (dish != null){
@@ -58,7 +50,7 @@ class Menu extends Component {
                     </CardImgOverlay>
                     <CardImgOverlay>
                     <Button className="float-right btn btn-danger btn-lg font-weight-bold" 
-                            onClick={() => this.onDishSelect(dish)}>View Details</Button>
+                            onClick={() => this.props.onClick(dish.id)}>View Details</Button>
                     </CardImgOverlay>
                 </Card>
             </div>);
@@ -67,9 +59,6 @@ class Menu extends Component {
             <div className="container">
                 <div className="row mt-1">
                         {menu}
-                </div>
-                <div className="row mt-1">
-                    <DishDetail dish={this.state.selectedDish} />
                 </div>
             </div>
         );
