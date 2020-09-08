@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
 import { DISHES } from '../shared/Dishes';
-import { Navbar1 } from '../shared/Navbar';
+
 import DishDetail from './DishdetailComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 
 class MainComponent extends Component{
   constructor(props){
@@ -18,10 +20,11 @@ class MainComponent extends Component{
 render(){
     return ( 
       <div>
-        <Navbar1 />
+        <Header />
         <Menu dishes = {this.state.dishes}
         onClick={(dishId) => this.onDishSelect(dishId)}/>
         <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish )[0]} />
+        <Footer />
       </div>
     );
   }

@@ -42,7 +42,12 @@ export const Navbar1 = (props) => {
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
-        </Navbar>   
+        </Navbar>  
+        <Navbar dark>
+        <div className="container">
+            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+        </div>
+      </Navbar>
     </div>   
     );
 }
