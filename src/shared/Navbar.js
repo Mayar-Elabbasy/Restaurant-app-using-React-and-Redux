@@ -6,12 +6,13 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
+    // NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
   } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 export const Navbar1 = (props) => {
     const [isOpen, setIsOpen] = useState(false); 
@@ -23,20 +24,44 @@ export const Navbar1 = (props) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="./components">Menu</NavLink>
+              </NavItem> */}
+              <NavItem>
+                <NavLink className="nav-link"  to='/home'>
+                  <span className="fa fa-home fa-lg"></span> 
+                    Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to='/aboutus'>
+                  <span className="fa fa-info fa-lg"></span> 
+                    About Us
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link"  to='/menu'>
+                  <span className="fa fa-list fa-lg"></span> 
+                    Menu
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to='/contactus'>
+                  <span className="fa fa-address-card fa-lg"></span> 
+                    Contact Us
+                </NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                    Options
+                      Options
                     </DropdownToggle>
                     <DropdownMenu right>
                     <DropdownItem>
-                        test
+                        Test
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>
-                        1
+                        Test 2
                     </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
