@@ -5,7 +5,10 @@ import {
     CardText, 
     CardBody,
     CardTitle,
+    Breadcrumb,
+    BreadcrumbItem 
    } from 'reactstrap';
+import { Link } from 'react-router-dom';
  
 const DishDetail = (props) => {
    
@@ -24,7 +27,7 @@ const DishDetail = (props) => {
             );
             return(
                 <ul className="list-unstyled">
-                { comments1 }
+                    { comments1 }
                 </ul>
             );
         }
@@ -54,7 +57,7 @@ const DishDetail = (props) => {
             </div>
             <div className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
-                {renderComments(dish.comments)}
+                {renderComments(comments)}
             </div>
             </React.Fragment>
             );
@@ -65,12 +68,23 @@ const DishDetail = (props) => {
         }
     }
 
-    const {dish} = props;
+    const {dish, comments} = props;
         return (
         <div className="container">
-            <div className="row mt-1">
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr />
+                </div>
+            </div>
+            <div className="row m-1">
                 {renderSelectedDish(dish)}
             </div>
+            <hr />
         </div>
     );
 }

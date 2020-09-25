@@ -3,8 +3,11 @@ import { Card,
          CardImg,
          CardTitle,  
          Button,
-         CardImgOverlay
+         CardImgOverlay,
+         Breadcrumb,
+         BreadcrumbItem
         } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Menu = (props) => {
 
@@ -19,8 +22,11 @@ const Menu = (props) => {
                         </CardTitle>   
                     </CardImgOverlay>
                     <CardImgOverlay>
-                    <Button className="float-right btn btn-danger btn-lg font-weight-bold" 
-                            onClick={() => props.onClick(dish.id)}>View Details</Button>
+                    <Link to={`/menu/${dish.id}`}>
+                        <Button className="float-right btn btn-danger btn-lg font-weight-bold">
+                            View Details
+                        </Button>
+                    </Link>
                     </CardImgOverlay>
                 </Card>
             </div>);
@@ -28,8 +34,19 @@ const Menu = (props) => {
             return ( 
             <div className="container">
                 <div className="row mt-1">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Menu</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                        <h3>Menu</h3>
+                        <hr />
+                    </div>                
+                </div>
+                <div className="row mt-1">
                         {menu}
                 </div>
+                <hr />
             </div>
         );
     }
