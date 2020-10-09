@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
-import { Navbar1 } from '../shared/Navbar';
+import Navbar1 from '../shared/Navbar';
+
 class Header extends Component {
   render() {
     return(
