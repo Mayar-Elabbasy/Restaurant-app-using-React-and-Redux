@@ -27,8 +27,8 @@ const DishDetail = (props) => {
         const [isModalOpen,setIsModalOpen] = useState(false);
         const toggleModal = () => setIsModalOpen(!isModalOpen);
         const handleSubmit = (values) =>{
-            alert('Current State is: ' + JSON.stringify(values));
             toggleModal();
+            props.addComment(props.dish.id, values.rating, values.author, values.comment);
         }
         return(
         <React.Fragment>
@@ -92,7 +92,7 @@ const DishDetail = (props) => {
         );
     }
 
-    const renderComments = (comments) => {
+    const renderComments = (comments, addComment, dishId) => {
         if (comments!=null)
         {
             const comments1 = comments.map(comment=>{
@@ -110,7 +110,7 @@ const DishDetail = (props) => {
                 <ul className="list-unstyled">
                     { comments1 }
                 </ul>
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment}/>
                 </React.Fragment>
             );
         }
@@ -140,7 +140,7 @@ const DishDetail = (props) => {
             </div>
             <div className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
-                {renderComments(comments)}
+                {renderComments(comments, props.addComment, props.dish.id)}
             </div>
             </React.Fragment>
             );
