@@ -30,7 +30,7 @@ const DishDetail = (props) => {
         const toggleModal = () => setIsModalOpen(!isModalOpen);
         const handleSubmit = (values) =>{
             toggleModal();
-            props.addComment(props.dish.id, values.rating, values.author, values.comment);
+            props.postComment(props.dish.id, values.rating, values.author, values.comment);
         }
         return(
         <React.Fragment>
@@ -94,7 +94,7 @@ const DishDetail = (props) => {
         );
     }
 
-    const renderComments = (comments, addComment, dishId) => {
+    const renderComments = (comments, postComment, dishId) => {
         if (comments!=null)
         {
             const comments1 = comments.map(comment=>{
@@ -112,7 +112,7 @@ const DishDetail = (props) => {
                 <ul className="list-unstyled">
                     { comments1 }
                 </ul>
-                <CommentForm dishId={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
                 </React.Fragment>
             );
         }
@@ -142,7 +142,7 @@ const DishDetail = (props) => {
             </div>
             <div className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
-                {renderComments(comments, props.addComment, props.dish.id)}
+                {renderComments(comments, props.postComment, props.dish.id)}
             </div>
             </React.Fragment>
             );
