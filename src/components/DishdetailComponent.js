@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
  
 const DishDetail = (props) => {
 
@@ -97,16 +98,18 @@ const DishDetail = (props) => {
     const renderComments = (comments, postComment, dishId) => {
         if (comments!=null)
         {
-            const comments1 = comments.map(comment=>{
-                return(
-                    <React.Fragment key={comment.id}>
-                        <li>{ comment.comment }</li><br />
-                        <li>-- { comment.author }, 
-                        {new Intl.DateTimeFormat("en-GB", {
-                            month: "long", day:"2-digit", year: "numeric"}).format(comment.date.firstSale)}</li><br />
-                    </React.Fragment>
-                );}
-            );
+            const comments1 = 
+            <Stagger in>
+                {comments.map((comment) => {
+                    return (
+                        <Fade in key={comment.id}>
+                            <li>{ comment.comment }</li><br />
+                            <li>-- { comment.author }, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li><br />
+                        </Fade>
+                    );
+                })}
+            </Stagger>
+            
             return(
                 <React.Fragment>
                 <ul className="list-unstyled">
@@ -128,17 +131,20 @@ const DishDetail = (props) => {
             return(
             <React.Fragment>
             <div key={dish.id} className="col-md-5 col-12 p-2 bg-warning">
-                <Card>
-                    <CardImg className="img-thumbnail text-center" src={baseUrl + dish.image} alt={dish.name} />
-                    <CardBody>
-                        <CardTitle className="font-weight-bold">
-                            {dish.name}
-                        </CardTitle>
-                        <CardText>
-                            {dish.description}
-                        </CardText>
-                    </CardBody>
-                </Card>
+                <FadeTransform in transformProps={{ exitTransform: 'scale(0.5) translateY(-50%)' }}>
+                    <Card>
+                        <CardImg className="img-thumbnail text-center" 
+                                 src={baseUrl + dish.image} alt={dish.name} />
+                        <CardBody>
+                            <CardTitle className="font-weight-bold">
+                                {dish.name}
+                            </CardTitle>
+                            <CardText>
+                                {dish.description}
+                            </CardText>
+                        </CardBody>
+                    </Card>
+                </FadeTransform>
             </div>
             <div className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
