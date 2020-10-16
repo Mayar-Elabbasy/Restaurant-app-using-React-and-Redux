@@ -9,6 +9,7 @@ import { Card,
         } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const Menu = (props) => {
 
@@ -16,7 +17,7 @@ const Menu = (props) => {
             return (
             <div key={dish.id} className="col-md-5 col-12 p-1 mr-3 bg-info">
                 <Card>
-                    <CardImg className="img-fluid" src={dish.image} alt={dish.name} />
+                    <CardImg className="img-fluid" src={baseUrl + dish.image} alt={dish.name} />
                     <CardImgOverlay>
                         <CardTitle className="font-weight-bold p-2 btn btn-lg btn-warning">
                             {dish.name} 

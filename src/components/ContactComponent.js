@@ -7,7 +7,7 @@ import { Breadcrumb,
          Row, 
          Col,
         } from 'reactstrap';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 class Contact extends Component {
 

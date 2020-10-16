@@ -18,6 +18,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
  
 const DishDetail = (props) => {
 
@@ -128,7 +129,7 @@ const DishDetail = (props) => {
             <React.Fragment>
             <div key={dish.id} className="col-md-5 col-12 p-2 bg-warning">
                 <Card>
-                    <CardImg className="img-thumbnail text-center" src={dish.image} alt={dish.name} />
+                    <CardImg className="img-thumbnail text-center" src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle className="font-weight-bold">
                             {dish.name}
