@@ -12,10 +12,9 @@ import { Control, Form, Errors } from 'react-redux-form';
 class Contact extends Component {
 
     handleSubmit = (values) =>{
-        // console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, 
+                                values.email, values.agree, values.contactType, values.message);
         this.props.resetFeedbackForm();
-        // event.preventDefault();
     }
 
     render(){
