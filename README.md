@@ -45,8 +45,10 @@ Then
 Finally run the following command to run the json server on port 3001
 
   ### `json-server --watch db.json -p 3001 -d 2000`
+  
+ Now you can open [http://localhost:3000](http://localhost:3000) again to view the difference after fetching the data successfully after the json server is up and I hope that you enjoy browsing the whole project.
 
-=========================================================================================================
+===================================================================================
 
 ### `yarn test`
 
