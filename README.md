@@ -1,16 +1,52 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## First of all please read the following instructions in order to run the project properly:
+1. Open a new terminal by pressing on CTRL + ALT + T
 
-In the project directory, you can run:
+2. Clone the project
+you can clone the project by using the following command:
 
-### `yarn start`
+  ### `git clone https://github.com/Mayar-Elabbasy/Restaurant-app-using-React.git`
+
+OR you can download it as zip.
+
+2. cd into the project by using the following command:
+
+  ### `cd Restaurant-app-using-React`
+
+3. Run this command to install npm packages
+
+  ### `npm install`
+
+4. Open up the server
+
+  ### `npm start`
+
+OR
+
+  ### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+5. This step is really important 
+please don't close the working terminal and open a new terminal to open the json server that is used to fetch the data from it 
+so in detail you need to make sure that you are in the project by
+
+  ### `cd Restaurant-app-using-React`
+
+Then
+
+  ### `cd json-server/`
+
+Finally run the following command to run the json server on port 3001
+
+  ### `json-server --watch db.json -p 3001 -d 2000`
+
+=========================================================================================================
 
 ### `yarn test`
 
